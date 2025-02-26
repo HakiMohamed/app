@@ -1,0 +1,27 @@
+const handleServicePress = (service: Service) => {
+        navigation.navigate('ServiceItems', {
+            serviceName: service.name,
+            category: service.category,
+            cityName
+        });
+    };
+
+
+// Render Service Item for Horizontal Scroll
+    const ServiceItem = ({ service }: { service: Service }) => (
+        <TouchableOpacity
+            style={[
+                tw`border border-gray-200 rounded-lg p-3 mx-2`,
+                styles.serviceItem
+            ]}
+            onPress={() => handleServicePress(service)}
+        >
+            <Image source={service.image} style={styles.serviceImage} />
+            <Text
+                style={[tw`text-center text-sm mt-2`, styles.rtlText]}
+                numberOfLines={2}
+            >
+                {service.name}
+            </Text>
+        </TouchableOpacity>
+    );
